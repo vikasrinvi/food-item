@@ -1,7 +1,7 @@
-const emailRegex = RegExp(
+const emailReg = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
   );
-  const regularExpression = RegExp(
+  const regEx = RegExp(
     /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/
   );
   
@@ -21,7 +21,7 @@ const emailRegex = RegExp(
             value.length === 0 ? "*Please enter yur address" : "";
         break;
         case "email":
-            formErrors.email = emailRegex.test(value) ? "" : "*invalid email address";
+            formErrors.email = emailReg.test(value) ? "" : "*invalid email address";
         break;
         case "phoneNumber":
             formErrors.phoneNumber = value.length < 10 ? "*minimum 10 characaters required" : "";
@@ -33,7 +33,7 @@ const emailRegex = RegExp(
             if (value.length < 8) {
                 formErrors.password = "*minimum 8 characaters required";
             } else
-                formErrors.password = regularExpression.test(value)
+                formErrors.password = regEx.test(value)
                 ? ""
                 : "*required symbol, upper and lower case letters and a number ";
         break;
@@ -71,7 +71,7 @@ const emailRegex = RegExp(
     if (errors.address === "" && state.formValue.address.length < 10) {
         errors.address = "*Please enter your address";
       }
-    if (errors.email === "" && !emailRegex.test(state.formValue.email)) {
+    if (errors.email === "" && !emailReg.test(state.formValue.email)) {
       errors.email = "*invalid email address";
     }
     if (errors.password === "" && state.formValue.password.length <= 8) {

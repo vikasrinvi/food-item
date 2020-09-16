@@ -63,14 +63,14 @@ class Contact extends React.Component {
                                         <span className="contact-info__icon"><i className="ti-tablet"></i></span>
                                         <div className="media-body">
                                             <h3>+1 253 565 2365</h3>
-                                            <p>Mon to Fri 9am to 6pm</p>
+                                            <p>Mon to Fri 8am to 8pm</p>
                                         </div>
                                     </div>
                                     <div className="media contact-info">
                                         <span className="contact-info__icon"><i className="ti-email"></i></span>
                                         <div className="media-body">
                                             <h3>support@colorlib.com</h3>
-                                            <p>Send us your query anytime!</p>
+                                            <p>any query any time</p>
                                         </div>
                                     </div>
                                 </div>

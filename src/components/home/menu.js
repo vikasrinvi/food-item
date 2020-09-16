@@ -13,13 +13,13 @@ class Menu extends React.Component {
         }
     }
     componentDidMount() {
-        GetApiAction("category/pagination")
+        GetApiAction("cat/pagination")
         .then((res) => {
-            const category = res.data.data
+            const cat = res.data.data
             
             this.setState({
                 loading: false,
-                foodCategory: category
+                foodCategory: cat
 
             },
             ()=>console.log(this.state.foodCategory))

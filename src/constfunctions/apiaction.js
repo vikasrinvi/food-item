@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const statusCode = [303, 401, 404, 409];
+const stCode = [303, 401, 404, 409];
 
 //For a post request to api without authorization header
 function PostApiAction(url, obj) {
@@ -15,7 +15,7 @@ function PostApiAction(url, obj) {
       .catch((error) => {
         let data = error.response.data;
         console.log(data);
-        if (statusCode.includes(data.statusCode)) {
+        if (stCode.includes(data.stCode)) {
           toast.error(data.message, { position: toast.POSITION.TOP_RIGHT });
         }
         reject(error);
@@ -33,7 +33,7 @@ function GetApiAction(url) {
       })
       .catch((error) => {
         let data = error.response.data;
-        if (statusCode.includes(data.status)) {
+        if (stCode.includes(data.status)) {
           toast.error(data.message, { position: toast.POSITION.TOP_CENTER });
         }
         reject(error);
@@ -53,7 +53,7 @@ function GetApiActionWithAuthorization(url) {
       })
       .catch((error) => {
         let data = error.response.data;
-        if (statusCode.includes(data.status)) {
+        if (stCode.includes(data.status)) {
           toast.error(data.message, { position: toast.POSITION.TOP_CENTER });
         }
         //Session Expires Check
@@ -78,7 +78,7 @@ function PostApiWithAuthorizationAction(url, obj) {
       })
       .catch((error) => {
         let data = error.response.data;
-        if (statusCode.includes(data.status)) {
+        if (stCode.includes(data.status)) {
           toast.error(data.message, { position: toast.POSITION.TOP_CENTER });
         }
         //Session Expires Check

@@ -16,7 +16,7 @@ class SubCategory extends React.Component {
     if (!localStorage.getItem("token")) {
       this.props.history.push("/login");
     } else {
-        let obj = {
+        let object = {
             id: this.props.match.params.catgoryid,
             type:'merchant',
             merchantID: this.props.match.params.merchantid
@@ -24,7 +24,7 @@ class SubCategory extends React.Component {
         this.setState({
             loading: true,
         });
-        GetApiAction(`subcategory/getSubCatId?id=${obj.id}&type=${obj.type}&merchantID=${obj.merchantID}`)
+        GetApiAction(`subcategory/getSubCatId?id=${object.id}&type=${object.type}&merchantID=${object.merchantID}`)
             .then((res) => {
             const subcategory = res.data;
             

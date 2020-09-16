@@ -6,7 +6,7 @@ import Header from './components/header/header';
 import Home from './components/home/home';
 import Footer from './components/footer/footer';
 import MenuPage from './components/menu/menupage';
-import About from './components/aboutus/aboutus';
+import About from './components/about/about';
 import Registration from './components/regsitration/registration';
 import Contact from './components/contact/contact';
 import Login from './components/login/login';
@@ -15,7 +15,7 @@ import SubCategory from './components/subcategory/subcategory';
 import Product from './components/Product/product';
 import 'react-widgets/dist/css/react-widgets.css';
 import { DropdownList } from 'react-widgets'
-
+ 
 function App() {
   return (
       <div className="App">

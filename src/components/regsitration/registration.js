@@ -19,7 +19,7 @@ class Registration extends React.Component {
                 address:"",
                 role: ""
             },
-            formErrors:{
+            formErr:{
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -46,9 +46,9 @@ class Registration extends React.Component {
                 ...this.state.formValue,
                 [name]:value}
         });
-        let formErrors = { ...this.state.formErrors };
-        formErrors = getErrorMessages(formErrors, name, value);
-        this.setState({ formErrors: formErrors });
+        let formErr = { ...this.state.formErr };
+        formErr = getErrorMessages(formErr, name, value);
+        this.setState({ formErr: formErr });
     }
 
     //Submit Handler for form
@@ -86,11 +86,11 @@ class Registration extends React.Component {
         });
     } else {
         let errors = getallErrors(this.state);
-        this.setState({ formErrors: errors });
+        this.setState({ formErr: errors });
     }
   };
     render() {
-        const {formErrors}= this.state;
+        const {formErr}= this.state;
         return (
             <>
                 <div className="bradcam_area bradcam_bg_2">
@@ -114,43 +114,43 @@ class Registration extends React.Component {
                                 <div className="mt-10">
                                     <input type="text" value={this.state.formValue.firstName} name="firstName" placeholder="First Name"
                                         className="single-input" onChange={this.handleChange} />
-                                        {formErrors.firstName.length > 0 && (
-                                            <small className="text-danger">{formErrors.firstName}</small>
+                                        {formErr.firstName.length > 0 && (
+                                            <small className="text-danger">{formErr.firstName}</small>
                                         )}
                                 </div>
                                 <div className="mt-10">
                                     <input type="text" value={this.state.formValue.lastName} name="lastName" placeholder="Last Name" 
                                         className="single-input" onChange={this.handleChange} />
-                                        {formErrors.lastName.length > 0 && (
-                                            <small className="text-danger">{formErrors.lastName}</small>
+                                        {formErr.lastName.length > 0 && (
+                                            <small className="text-danger">{formErr.lastName}</small>
                                         )}
                                 </div>
                                 <div className="mt-10">
                                     <input type="email" value={this.state.formValue.email} name="email" placeholder="Email address" 
                                         className="single-input" onChange={this.handleChange} />
-                                        {formErrors.email.length > 0 && (
-                                            <small className="text-danger">{formErrors.email}</small>
+                                        {formErr.email.length > 0 && (
+                                            <small className="text-danger">{formErr.email}</small>
                                         )}
                                 </div>
                                 <div className="mt-10">
                                     <input type="number" value={this.state.formValue.phoneNumber} name="phoneNumber" placeholder="Phone number"
                                         className="single-input-secondary" onChange={this.handleChange} />
-                                        {formErrors.phoneNumber.length > 0 && (
-                                            <small className="text-danger">{formErrors.phoneNumber}</small>
+                                        {formErr.phoneNumber.length > 0 && (
+                                            <small className="text-danger">{formErr.phoneNumber}</small>
                                         )}
                                 </div>
                                 <div className="mt-10">
                                     <input type="password" value={this.state.formValue.password} name="password" placeholder="Password" 
                                         className="single-input" onChange={this.handleChange} />
-                                        {formErrors.password.length > 0 && (
-                                            <small className="text-danger">{formErrors.password}</small>
+                                        {formErr.password.length > 0 && (
+                                            <small className="text-danger">{formErr.password}</small>
                                         )}
                                 </div>
                                 <div className="input-group-icon mt-10">
                                     <div className="icon"><i className="fa fa-thumb-tack" aria-hidden="true"></i></div>
                                     <input type="text" value={this.state.formValue.address} name="address" placeholder="Address" className="single-input" onChange={this.handleChange} />
-                                    {formErrors.address.length > 0 && (
-                                        <small className="text-danger">{formErrors.address}</small>
+                                    {formErr.address.length > 0 && (
+                                        <small className="text-danger">{formErr.address}</small>
                                     )}
                                 </div>
 
@@ -162,8 +162,8 @@ class Registration extends React.Component {
                                             <option value="4">Customer</option>
                                         </select>
                                     </div>
-                                    {formErrors.role.length > 0 && (
-                                        <small className="text-danger">{formErrors.role}</small>
+                                    {formErr.role.length > 0 && (
+                                        <small className="text-danger">{formErr.role}</small>
                                     )}
                                 </div>
                                 <button type="submit" className="genric-btn default circle mt-10 mb-30">Sign up</button>

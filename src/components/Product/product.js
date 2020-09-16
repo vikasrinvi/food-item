@@ -19,21 +19,21 @@ class Product extends React.Component {
     if (!localStorage.getItem("token")) {
       this.props.history.push("/login");
     } else {
-      let obj = {
-        subCategoryId: this.props.match.params.subcategoryid,
+      let object = {
+        subCatId: this.props.match.params.subcategoryid,
       };
       this.setState({
         loading: true,
       });
       GetApiActionWithAuthorization(
-        `product/pagination?subcategoryID=${obj.subCategoryId}`
+        `product/pagination?subcategoryID=${object.subCatId}`
       )
         .then((res) => {
-          const products = res.data.data;
+          const prod = res.data.data;
           this.setState(
             {
               loading: false,
-              Product: products,
+              Product: prod,
             },
             () => console.log(this.state.Product)
           );
